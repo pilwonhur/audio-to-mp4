@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>523</string>
+	<key>AMApplicationVersion</key>
+	<string>2.10</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMCategory</key>
+				<string>AMCatUtilities</string>
+				<key>AMComment</key>
+				<string></string>
+				<key>AMDescription</key>
+				<dict>
+					<key>AMDInput</key>
+					<string>The files or folders to execute the shell script on</string>
+					<key>AMDSummary</key>
+					<string>This action runs a shell script to convert audio files to MP4</string>
+				</dict>
+				<key>AMIconName</key>
+				<string>Run Shell Script</string>
+				<key>AMKeywords</key>
+				<array>
+					<string>shell</string>
+					<string>script</string>
+					<string>command</string>
+					<string>run</string>
+					<string>unix</string>
+				</array>
+				<key>AMName</key>
+				<string>Run Shell Script</string>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMTag</key>
+				<string>AMTagUtilities</string>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+
+SCRIPT_DIR="/Users/pilwonhur/Dropbox/Pilwon Documents/Project/20260115_m4a2mp4"
+PYTHON_SCRIPT="$SCRIPT_DIR/m4a_to_mp4_converter.py"
+
+# Check if FFmpeg is installed
+if ! command -v ffmpeg &amp;> /dev/null; then
+    osascript -e 'display notification "FFmpeg is not installed. Run: brew install ffmpeg" with title "Convert Audio to MP4" subtitle "Error"'
+    exit 1
+fi
+
+# Process each input file
+SUCCESS_COUNT=0
+ERROR_COUNT=0
+TOTAL_FILES=0
+
+for f in "$@"; do
+    ((TOTAL_FILES++))
+    if /usr/bin/python3 "$PYTHON_SCRIPT" "$f"; then
+        ((SUCCESS_COUNT++))
+    else
+        ((ERROR_COUNT++))
+    fi
+done
+
+# Display notification with results
+if [[ $ERROR_COUNT -eq 0 ]]; then
+    if [[ $TOTAL_FILES -eq 1 ]]; then
+        osascript -e 'display notification "Conversion completed successfully" with title "Convert Audio to MP4" sound name "Glass"'
+    else
+        osascript -e "display notification \"$SUCCESS_COUNT files converted successfully\" with title \"Convert Audio to MP4\" sound name \"Glass\""
+    fi
+else
+    if [[ $TOTAL_FILES -eq 1 ]]; then
+        osascript -e 'display notification "Conversion failed" with title "Convert Audio to MP4" subtitle "Error" sound name "Basso"'
+    else
+        osascript -e "display notification \"$SUCCESS_COUNT succeeded, $ERROR_COUNT failed\" with title \"Convert Audio to MP4\" subtitle \"Partial Success\" sound name \"Basso\""
+    fi
+fi</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCatUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>D6F6E6E6-6E6E-6E6E-6E6E-6E6E6E6E6E6E</string>
+				<key>Keywords</key>
+				<array>
+					<string>shell</string>
+					<string>script</string>
+					<string>command</string>
+					<string>run</string>
+					<string>unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>E7F7F7F7-7F7F-7F7F-7F7F-7F7F7F7F7F7F</string>
+				<key>UUID</key>
+				<string>C5E5E5E5-5E5E-5E5E-5E5E-5E5E5E5E5E5E</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>529.000000:622.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
