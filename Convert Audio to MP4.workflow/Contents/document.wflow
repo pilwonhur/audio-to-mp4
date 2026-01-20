@@ -39,7 +39,7 @@
 					<key>AMDInput</key>
 					<string>The files or folders to execute the shell script on</string>
 					<key>AMDSummary</key>
-					<string>This action runs a shell script to convert audio files to MP4</string>
+					<string>Converts audio files to MP4</string>
 				</dict>
 				<key>AMIconName</key>
 				<string>Run Shell Script</string>
@@ -89,7 +89,7 @@ TOTAL_FILES=0
 
 for f in "$@"; do
     ((TOTAL_FILES++))
-    if /usr/bin/python3 "$PYTHON_SCRIPT" "$f"; then
+    if /usr/bin/python3 "$PYTHON_SCRIPT" "$f" 2>&amp;1; then
         ((SUCCESS_COUNT++))
     else
         ((ERROR_COUNT++))
@@ -234,6 +234,12 @@ fi</string>
 	<dict/>
 	<key>workflowMetaData</key>
 	<dict>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.fileSystemObject</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
 		<key>workflowTypeIdentifier</key>
 		<string>com.apple.Automator.servicesMenu</string>
 	</dict>
