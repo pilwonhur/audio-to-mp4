@@ -89,7 +89,7 @@ TOTAL_FILES=0
 
 for f in "$@"; do
     ((TOTAL_FILES++))
-    if /usr/bin/python3 "$PYTHON_SCRIPT" "$f" 2>&amp;1; then
+    if python3 "$PYTHON_SCRIPT" "$f" 2>&amp;1; then
         ((SUCCESS_COUNT++))
     else
         ((ERROR_COUNT++))

@@ -139,3 +139,4 @@ Create a macOS Quick Action (Automator workflow) that integrates with Finder's r
 |---------|------|---------|--------|
 | 0.1 | 2026-01-15 | Initial draft (PRD_init.md) | Pilwon Hur |
 | 1.0 | 2026-01-15 | Refined PRD with detailed requirements, specs, and phases | Pilwon Hur |
+| 1.0.1 | 2026-02-28 | Fixed hardcoded Python path issue for macOS Sequoia compatibility | Pilwon Hur |

@@ -100,6 +100,7 @@ audio-to-mp4/
 │       ├── document.wflow        # Workflow definition
 │       └── Info.plist            # Service configuration
 ├── README.md                     # This file
+├── CHANGELOG.md                  # Version history and updates
 ├── PRD.md                        # Product Requirements Document
 └── LICENSE                       # MIT License
 ```

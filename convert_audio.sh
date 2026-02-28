@@ -24,7 +24,7 @@ ERROR_COUNT=0
 TOTAL_FILES=$#
 
 for file in "$@"; do
-    if /usr/bin/python3 "$PYTHON_SCRIPT" "$file"; then
+    if python3 "$PYTHON_SCRIPT" "$file"; then
         ((SUCCESS_COUNT++))
     else
         ((ERROR_COUNT++))
