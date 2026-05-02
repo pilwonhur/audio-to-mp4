@@ -1,5 +1,5 @@
 # Product Requirements Document (PRD)
-## M4A/MP3 to MP4 Converter Quick Action
+## M4A/MP3/OGG to MP4 Converter Quick Action
 
 **Version:** 1.0  
 **Date:** 2026-01-15  
@@ -10,10 +10,10 @@
 ## 1. Overview
 
 ### 1.1 Problem Statement
-YouTube does not support direct upload of audio-only files such as `.m4a` or `.mp3`. Currently, the conversion from audio to video with a blank video track requires executing a Python script (`m4a_to_mp4_converter.py`) manually from the terminal, which is inconvenient for frequent use.
+YouTube does not support direct upload of audio-only files such as `.m4a`, `.mp3`, or `.ogg`. Currently, the conversion from audio to video with a blank video track requires executing a Python script (`m4a_to_mp4_converter.py`) manually from the terminal, which is inconvenient for frequent use.
 
 ### 1.2 Solution
-Create a macOS Quick Action (Automator workflow) that integrates with Finder's right-click context menu, enabling one-click conversion of `.m4a` and `.mp3` files to `.mp4` format with a blank video track.
+Create a macOS Quick Action (Automator workflow) that integrates with Finder's right-click context menu, enabling one-click conversion of `.m4a`, `.mp3`, and `.ogg` files to `.mp4` format with a blank video track.
 
 ### 1.3 Target Platform
 - **OS:** macOS (Monterey 12.0+)
@@ -26,7 +26,7 @@ Create a macOS Quick Action (Automator workflow) that integrates with Finder's r
 | Goal | Success Metric |
 |------|----------------|
 | Simplify audio-to-video conversion | Reduce conversion from 3+ steps (open terminal, navigate, run command) to 1 step (right-click → convert) |
-| Support multiple audio formats | Accept both `.m4a` and `.mp3` file types |
+| Support multiple audio formats | Accept `.m4a`, `.mp3`, and `.ogg` file types |
 | Seamless user experience | Output file saved in the same directory as input |
 | Reliability | 100% of valid audio files convert successfully |
 
@@ -35,7 +35,7 @@ Create a macOS Quick Action (Automator workflow) that integrates with Finder's r
 ## 3. Functional Requirements
 
 ### 3.1 Quick Action Integration
-- **FR-01:** The Quick Action shall appear in Finder's right-click context menu when selecting `.m4a` or `.mp3` files
+- **FR-01:** The Quick Action shall appear in Finder's right-click context menu when selecting `.m4a`, `.mp3`, or `.ogg` files
 - **FR-02:** The Quick Action shall support single file selection
 - **FR-03:** The Quick Action shall support batch processing (multiple file selection)
 
@@ -70,7 +70,7 @@ Create a macOS Quick Action (Automator workflow) that integrates with Finder's r
 
 ### 5.2 Implementation Approach
 1. **Automator Workflow:** Create a "Quick Action" workflow in Automator
-2. **File Type Filter:** Configure to receive `.m4a` and `.mp3` files from Finder
+2. **File Type Filter:** Configure to receive `.m4a`, `.mp3`, and `.ogg` files from Finder
 3. **Shell Script Action:** Execute the Python script with passed file paths
 4. **Notification:** Use `osascript` to display completion/error notifications
 
@@ -107,7 +107,7 @@ Create a macOS Quick Action (Automator workflow) that integrates with Finder's r
 
 ### Phase 1: Core Functionality (MVP)
 - [ ] Create Automator Quick Action workflow
-- [ ] Configure file type filters for .m4a and .mp3
+- [ ] Configure file type filters for .m4a, .mp3, and .ogg
 - [ ] Integrate shell script to call Python converter
 - [ ] Test single file conversion
 

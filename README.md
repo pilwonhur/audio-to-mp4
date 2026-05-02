@@ -1,6 +1,6 @@
 # 🎵 Audio to MP4 Converter
 
-> Convert M4A/MP3 audio files to MP4 with a blank video track for YouTube upload — right from Finder's context menu.
+> Convert M4A/MP3/OGG audio files to MP4 with a blank video track for YouTube upload — right from Finder's context menu.
 
 [![macOS](https://img.shields.io/badge/macOS-12.0%2B-blue?logo=apple)](https://www.apple.com/macos/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
@@ -8,7 +8,7 @@
 
 ## 🎯 Problem
 
-YouTube doesn't accept audio-only files (.m4a, .mp3) for upload. You need to convert them to video format first — but running terminal commands for every file is tedious.
+YouTube doesn't accept audio-only files (.m4a, .mp3, .ogg) for upload. You need to convert them to video format first — but running terminal commands for every file is tedious.
 
 ## ✨ Solution
 
@@ -19,7 +19,7 @@ A **macOS Quick Action** that lets you right-click any audio file and instantly 
 ## 📦 Features
 
 - ✅ **One-click conversion** from Finder's right-click menu
-- ✅ **Supports M4A and MP3** audio formats
+- ✅ **Supports M4A, MP3, and OGG** audio formats
 - ✅ **Batch processing** — select multiple files at once
 - ✅ **Native notifications** for success/failure feedback
 - ✅ **1080p black video** with optimized encoding (minimal file size)
@@ -72,7 +72,7 @@ killall Finder
 
 ### Via Quick Action (Recommended)
 
-1. **Right-click** any `.m4a` or `.mp3` file in Finder
+1. **Right-click** any `.m4a`, `.mp3`, or `.ogg` file in Finder
 2. Select **Services** → **Convert Audio to MP4**
 3. Wait for the notification confirming completion
 4. The `.mp4` file appears in the same folder
@@ -86,7 +86,7 @@ python3 m4a_to_mp4_converter.py song.m4a
 
 **Multiple files:**
 ```bash
-python3 m4a_to_mp4_converter.py track1.m4a track2.mp3 track3.m4a
+python3 m4a_to_mp4_converter.py track1.m4a track2.mp3 track3.ogg
 ```
 
 ## 📁 Project Structure

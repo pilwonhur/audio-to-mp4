@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-M4A/MP3 to MP4 Converter
-Converts audio files (.m4a, .mp3) to MP4 with a blank video track for YouTube upload.
+M4A/MP3/OGG to MP4 Converter
+Converts audio files (.m4a, .mp3, .ogg) to MP4 with a blank video track for YouTube upload.
 
 Usage:
     python m4a_to_mp4_converter.py <input_file> [<input_file2> ...]
@@ -35,7 +35,7 @@ def convert_audio_to_mp4(input_path: str) -> tuple[bool, str]:
     Convert an audio file to MP4 with a blank video track.
     
     Args:
-        input_path: Path to the input audio file (.m4a or .mp3)
+        input_path: Path to the input audio file (.m4a, .mp3, or .ogg)
         
     Returns:
         Tuple of (success: bool, message: str)
@@ -47,8 +47,8 @@ def convert_audio_to_mp4(input_path: str) -> tuple[bool, str]:
         return False, f"Input file not found: {input_path}"
     
     # Validate file extension
-    if input_file.suffix.lower() not in ['.m4a', '.mp3']:
-        return False, f"Unsupported file format: {input_file.suffix}. Only .m4a and .mp3 are supported."
+    if input_file.suffix.lower() not in ['.m4a', '.mp3', '.ogg']:
+        return False, f"Unsupported file format: {input_file.suffix}. Only .m4a, .mp3, and .ogg are supported."
     
     # Create output path (same directory, .mp4 extension)
     output_file = input_file.with_suffix('.mp4')
@@ -104,7 +104,7 @@ def main():
     """Main entry point for the converter."""
     if len(sys.argv) < 2:
         print("Usage: python m4a_to_mp4_converter.py <input_file> [<input_file2> ...]")
-        print("Supported formats: .m4a, .mp3")
+        print("Supported formats: .m4a, .mp3, .ogg")
         sys.exit(1)
     
     # Check FFmpeg availability

@@ -22,6 +22,7 @@
 				<string>public.mpeg-4-audio</string>
 				<string>public.mp3</string>
 				<string>com.apple.m4a-audio</string>
+				<string>org.xiph.ogg-audio</string>
 			</array>
 		</dict>
 	</array>
